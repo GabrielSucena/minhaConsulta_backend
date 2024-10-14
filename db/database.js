@@ -19,13 +19,14 @@ db.serialize(() => {
 
     // Criar a tabela de consultas
     db.run(`CREATE TABLE IF NOT EXISTS consultations (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    doctor TEXT NOT NULL,
-    date TEXT NOT NULL,
-    status TEXT NOT NULL,
-    userId INTEGER,
-    FOREIGN KEY (userId) REFERENCES users(id)
-  )`);
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      userId INTEGER NOT NULL,
+      date TEXT NOT NULL,
+      doctor TEXT NOT NULL,
+      specialty TEXT NOT NULL,
+      status TEXT NOT NULL,
+      FOREIGN KEY (userId) REFERENCES users(id)
+    )`);
 });
 
 module.exports = db;
